@@ -49,106 +49,16 @@ body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-se
 .mobile-menu a:hover { color: var(--red); }
 .mobile-menu .mob-cta { background: var(--red); color: white; padding: 14px 40px; font-size: 20px; }
 
-@media (max-width: 768px) {
 
-  /* ── HEADER ── */
-  .masthead { padding: 0 20px; }
-  .masthead-top { display: none; }
-  .masthead-brand { padding: 12px 0 8px; }
-  .brand-name { font-size: 36px; letter-spacing: 4px; }
-  .masthead-bottom { border-top: none; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .nav-order { display: none; }
 
-  /* ── HERO ── */
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 40px 24px; border-right: none; border-bottom: 1px solid var(--rule); }
-  .hero-deck { font-size: 13px; max-width: 100%; }
-  .hero-kicker { flex-wrap: wrap; }
-  .hero-kicker span, .hero-kicker { min-width: 0; }
-  .protein-num { font-size: 56px; }
-  .protein-unit { font-size: 28px; }
-  .hero-btns { flex-direction: column; align-items: stretch; }
-  .btn-primary, .btn-ghost { text-align: center; padding: 16px 24px; font-size: 15px; }
-  .hero-right { min-height: 280px; }
+/* ── TABLET / SHRUNK WINDOW (769px–1100px) ──
+   Fills the gap between the full desktop grid layouts and the 768px mobile
+   breakpoint. Without this, multi-column grids (why-grid, ingredients,
+   flavor-slide, testimonials, made-section, footer) keep their desktop
+   column counts and large fixed paddings while the viewport narrows,
+   causing text to overlap, badges to collide, and columns to squeeze —
+   the "warped" look when the browser window is shrunk but not phone-sized. */
 
-  /* ── SECTIONS ── */
-  .section { padding: 48px 24px; }
-
-  /* ── WHY GRID ── */
-  .why-grid { grid-template-columns: 1fr 1fr; }
-  .why-card { padding: 28px 20px; border-right: none; border-bottom: 1px solid var(--rule); }
-  .why-card:nth-child(odd) { border-right: 1px solid var(--rule); }
-  .why-card:nth-last-child(-n+2) { border-bottom: none; }
-  .why-number { font-size: 52px; }
-  .why-unit { font-size: 26px; }
-
-  /* ── INGREDIENTS ── */
-  .ingredients-cols { grid-template-columns: 1fr; }
-  .ingredients-divider { display: none; }
-  .ingredients-intro { padding-right: 0; margin-bottom: 32px; }
-  .ingredients-list { grid-template-columns: 1fr; }
-  .ingredient-item { border-right: none !important; }
-
-  /* ── FLAVORS CAROUSEL ── */
-  .flavor-slide { grid-template-columns: 1fr; min-height: auto; }
-  .flavor-info { padding: 36px 24px; }
-  .flavor-divider { display: none; }
-  .flavor-right { min-height: 260px; }
-  .carousel-controls { padding: 14px 24px; flex-wrap: wrap; gap: 12px; }
-  .carousel-arrows { gap: 8px; }
-  .arrow-btn { width: 40px; height: 40px; }
-  /* Hide the overlay prev/next buttons on mobile — they float at 50% of the
-     WHOLE stacked slide height and land on top of the text once info+image
-     stack vertically. The bottom carousel-controls bar has its own arrows. */
-  #flavorsTrack ~ button,
-  button[onclick="prevSlide()"],
-  button[onclick="nextSlide()"] { display: none !important; }
-
-  /* ── TESTIMONIALS ── */
-  .testimonials-grid { grid-template-columns: 1fr; }
-  .testimonial { border-right: none; border-bottom: 1px solid var(--rule); }
-  .testimonial:last-child { border-bottom: none; }
-
-  /* ── HOW IT'S MADE ── */
-  .made-section { grid-template-columns: 1fr; }
-  .made-divider { display: none; }
-  .made-left { padding: 48px 24px; }
-  .made-right { min-height: 280px; }
-  .made-center-text .big { font-size: 64px; }
-
-  /* ── FOOTER ── */
-  footer { padding: 0 24px; }
-  .footer-top { grid-template-columns: 1fr; gap: 0; }
-  .footer-divider { display: none; }
-  .footer-col { padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .footer-col:last-child { border-bottom: none; }
-  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-
-  /* ── STORY SECTION ── */
-  /* The two-column layout is built with an inline-styled grid div, not a
-     class, so target it by structural position within #story instead. */
-  #story > div[style*="grid-template-columns"] {
-    display: block !important;
-  }
-  #story > div[style*="grid-template-columns"] > div[style*="background:var(--rule)"] {
-    display: none !important; /* the 1px vertical divider */
-  }
-  #story > div[style*="grid-template-columns"] > div:not([style*="background"]) {
-    padding: 0 24px 32px !important;
-  }
-  #story { padding: 48px 0 !important; overflow: hidden; }
-  #story .doodle,
-  #story img { max-width: 45% !important; opacity: 0.06 !important; }
-
-  /* ── TESTIMONIALS DOODLES ── */
-  /* These decorative images have position:absolute with no positioned
-     ancestor, so on mobile they can drift and sit on top of the section
-     header text instead of staying inside the testimonials block. */
-  .testimonials-section { position: relative !important; overflow: hidden !important; }
-  .testimonials-section > img { max-width: 55% !important; }
-}
 
 .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 132px); border-bottom: 2px solid var(--ink); position: relative; overflow: hidden; }
 .hero-left { padding: 72px 56px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--rule); position: relative; z-index: 2; }
@@ -180,7 +90,7 @@ h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(80px, 9vw, 128px); 
 .section-kicker { font-family: 'Special Elite', cursive; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
 .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 5vw, 72px); line-height: 1; letter-spacing: 2px; }
 
-.why-section { border-bottom: 2px solid var(--ink); }
+.why-section { border-bottom: 2px solid var(--ink); position: relative; overflow: hidden; }
 .why-grid { display: grid; grid-template-columns: repeat(4,1fr); }
 .why-card { padding: 44px 32px; border-right: 1px solid var(--rule); position: relative; z-index: 2; }
 .why-card:last-child { border-right: none; }
@@ -189,7 +99,7 @@ h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(80px, 9vw, 128px); 
 .why-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; margin-bottom: 10px; }
 .why-desc { font-family: 'Special Elite', cursive; font-size: 13px; line-height: 1.7; color: var(--gray); }
 
-.ingredients-section { border-bottom: 2px solid var(--ink); background: #fafafa; }
+.ingredients-section { border-bottom: 2px solid var(--ink); background: #fafafa; position: relative; overflow: hidden; }
 .ingredients-cols { display: grid; grid-template-columns: 1fr 1px 2fr; }
 .ingredients-intro { padding-right: 48px; position: relative; z-index: 2; }
 .ingredients-intro p { font-family: 'Special Elite', cursive; font-size: 14px; line-height: 1.9; color: var(--gray); margin-bottom: 14px; }
@@ -225,9 +135,11 @@ h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(80px, 9vw, 128px); 
 .carousel-arrows { display: flex; gap: 10px; }
 .arrow-btn { width: 44px; height: 44px; border: 1.5px solid var(--ink); background: none; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; transition: all .2s; color: var(--ink); }
 .arrow-btn:hover { background: var(--red); border-color: var(--red); color: white; }
-.carousel-label { font-family: 'Special Elite', cursive; font-size: 11px; letter-spacing: 3px; color: var(--gray); text-transform: uppercase; }
+.carousel-arrow-mobile { display: none; }
+.carousel-controls { justify-content: center; gap: 10px; }
+.carousel-dots { order: 0; }
 
-.testimonials-section { border-bottom: 2px solid var(--ink); }
+.testimonials-section { border-bottom: 2px solid var(--ink); position: relative; overflow: hidden; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); }
 .testimonial { padding: 40px 32px; border-right: 1px solid var(--rule); position: relative; z-index: 2; }
 .testimonial:last-child { border-right: none; }
@@ -277,6 +189,195 @@ footer { background: var(--ink); color: white; padding: 0 56px; border-top: 4px 
 @keyframes floatBall{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 12px))}}
 
 @keyframes floatBall2{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+@media (max-width: 1100px) and (min-width: 769px) {
+
+  /* ── DECORATIVE DOODLES ── */
+  /* Every background sketch (skyline, statue, building, etc.) uses alt=""
+     while real content images have descriptive alt text — this lets us
+     shrink every doodle uniformly without touching real photos/illustrations.
+     Their fixed 180–320px widths were built for full desktop width; at
+     tablet widths that's large enough to crowd or overlap the main content
+     next to/behind them. */
+  img[alt=""] { max-width: 150px !important; height: auto !important; }
+
+  /* ── HEADER ── */
+  .masthead { padding: 0 28px; }
+  .masthead-top { display: none; }
+  .brand-name { font-size: 44px; letter-spacing: 5px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-order { display: none; }
+
+  /* ── HERO ── */
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 48px 32px; border-right: none; border-bottom: 1px solid var(--rule); }
+  h1 { font-size: clamp(56px, 9vw, 96px); min-height: 2em; }
+  .hero-deck { font-size: 14px; max-width: 100%; }
+  .protein-num { font-size: 64px; }
+  .protein-unit { font-size: 32px; }
+  .hero-right { min-height: 320px; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 56px 32px; }
+
+  /* ── WHY GRID ── */
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .why-card { padding: 32px 24px; border-bottom: 1px solid var(--rule); }
+  .why-card:nth-child(odd) { border-right: 1px solid var(--rule); }
+  .why-card:nth-child(even) { border-right: none; }
+  .why-card:nth-last-child(-n+2) { border-bottom: none; }
+  .why-number { font-size: 56px; }
+
+  /* ── INGREDIENTS ── */
+  .ingredients-cols { grid-template-columns: 1fr; }
+  .ingredients-divider { display: none; }
+  .ingredients-intro { padding-right: 0; margin-bottom: 32px; }
+  .ingredients-list { grid-template-columns: 1fr 1fr; }
+
+  /* ── FLAVORS CAROUSEL ── */
+  .flavor-slide { grid-template-columns: 1fr; min-height: auto; }
+  .flavor-info { padding: 40px 32px; }
+  .flavor-divider { display: none; }
+  .flavor-right { min-height: 320px; }
+  #flavorsTrack ~ button,
+  button[onclick="prevSlide()"]:not(.carousel-arrow-mobile),
+  button[onclick="nextSlide()"]:not(.carousel-arrow-mobile) { display: none !important; }
+  .carousel-arrow-mobile { display: flex !important; }
+  .carousel-controls { justify-content: space-between; padding: 16px 32px; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .testimonial { border-bottom: 1px solid var(--rule); }
+  .testimonial:nth-child(odd) { border-right: 1px solid var(--rule); }
+  .testimonial:nth-child(even) { border-right: none; }
+  .testimonials-section > img { max-width: 40% !important; }
+
+  /* ── HOW IT'S MADE ── */
+  .made-section { grid-template-columns: 1fr; }
+  .made-divider { display: none; }
+  .made-left { padding: 56px 32px; }
+  .made-right { min-height: 320px; }
+  .made-center-text .big { font-size: 72px; }
+
+  /* ── FOOTER ── */
+  footer { padding: 0 32px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 0; }
+  .footer-divider { display: none; }
+  .footer-col { padding: 32px 24px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .footer-col:first-child { grid-column: 1 / -1; padding-left: 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+  /* ── STORY SECTION ── */
+  #story > div[style*="grid-template-columns"] { display: block !important; }
+  #story > div[style*="grid-template-columns"] > div[style*="background:var(--rule)"] { display: none !important; }
+  #story > div[style*="grid-template-columns"] > div:not([style*="background"]) { padding: 0 0 32px !important; }
+  #story img { max-width: 35% !important; opacity: 0.06 !important; }
+}
+
+@media (max-width: 768px) {
+
+  /* ── DECORATIVE DOODLES ── */
+  img[alt=""] { max-width: 90px !important; height: auto !important; }
+
+  /* ── HEADER ── */
+  .masthead { padding: 0 20px; }
+  .masthead-top { display: none; }
+  .masthead-brand { padding: 12px 0 8px; }
+  .brand-name { font-size: 36px; letter-spacing: 4px; }
+  .masthead-bottom { border-top: none; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-order { display: none; }
+
+  /* ── HERO ── */
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 40px 24px; border-right: none; border-bottom: 1px solid var(--rule); }
+  .hero-deck { font-size: 13px; max-width: 100%; }
+  .hero-kicker { flex-wrap: wrap; }
+  .hero-kicker span, .hero-kicker { min-width: 0; }
+  .protein-num { font-size: 56px; }
+  .protein-unit { font-size: 28px; }
+  .hero-btns { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-ghost { text-align: center; padding: 16px 24px; font-size: 15px; }
+  .hero-right { min-height: 280px; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 48px 24px; }
+
+  /* ── WHY GRID ── */
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .why-card { padding: 28px 20px; border-right: none; border-bottom: 1px solid var(--rule); }
+  .why-card:nth-child(odd) { border-right: 1px solid var(--rule); }
+  .why-card:nth-last-child(-n+2) { border-bottom: none; }
+  .why-number { font-size: 52px; }
+  .why-unit { font-size: 26px; }
+
+  /* ── INGREDIENTS ── */
+  .ingredients-cols { grid-template-columns: 1fr; }
+  .ingredients-divider { display: none; }
+  .ingredients-intro { padding-right: 0; margin-bottom: 32px; }
+  .ingredients-list { grid-template-columns: 1fr; }
+  .ingredient-item { border-right: none !important; }
+
+  /* ── FLAVORS CAROUSEL ── */
+  .flavor-slide { grid-template-columns: 1fr; min-height: auto; }
+  .flavor-info { padding: 36px 24px; }
+  .flavor-divider { display: none; }
+  .flavor-right { min-height: 260px; }
+  .carousel-controls { padding: 14px 24px; flex-wrap: wrap; gap: 12px; }
+  .carousel-arrows { gap: 8px; }
+  .arrow-btn { width: 40px; height: 40px; }
+  .carousel-arrow-mobile { display: flex !important; }
+  /* Hide the overlay prev/next buttons on mobile — they float at 50% of the
+     WHOLE stacked slide height and land on top of the text once info+image
+     stack vertically. The bottom carousel-controls bar has its own arrows. */
+  #flavorsTrack ~ button,
+  button[onclick="prevSlide()"]:not(.carousel-arrow-mobile),
+  button[onclick="nextSlide()"]:not(.carousel-arrow-mobile) { display: none !important; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonial { border-right: none; border-bottom: 1px solid var(--rule); }
+  .testimonial:last-child { border-bottom: none; }
+
+  /* ── HOW IT'S MADE ── */
+  .made-section { grid-template-columns: 1fr; }
+  .made-divider { display: none; }
+  .made-left { padding: 48px 24px; }
+  .made-right { min-height: 280px; }
+  .made-center-text .big { font-size: 64px; }
+
+  /* ── FOOTER ── */
+  footer { padding: 0 24px; }
+  .footer-top { grid-template-columns: 1fr; gap: 0; }
+  .footer-divider { display: none; }
+  .footer-col { padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .footer-col:last-child { border-bottom: none; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+  /* ── STORY SECTION ── */
+  /* The two-column layout is built with an inline-styled grid div, not a
+     class, so target it by structural position within #story instead. */
+  #story > div[style*="grid-template-columns"] {
+    display: block !important;
+  }
+  #story > div[style*="grid-template-columns"] > div[style*="background:var(--rule)"] {
+    display: none !important; /* the 1px vertical divider */
+  }
+  #story > div[style*="grid-template-columns"] > div:not([style*="background"]) {
+    padding: 0 24px 32px !important;
+  }
+  #story { padding: 48px 0 !important; overflow: hidden; }
+  #story .doodle,
+  #story img { max-width: 45% !important; opacity: 0.06 !important; }
+
+  /* ── TESTIMONIALS DOODLES ── */
+  /* These decorative images have position:absolute with no positioned
+     ancestor, so on mobile they can drift and sit on top of the section
+     header text instead of staying inside the testimonials block. */
+  .testimonials-section { position: relative !important; overflow: hidden !important; }
+  .testimonials-section > img { max-width: 55% !important; }
+}
 </style>
 </head>
 <body>
@@ -548,12 +649,16 @@ footer { background: var(--ink); color: white; padding: 0 56px; border-top: 4px 
     </div>
 
     <!-- Dots -->
-    <div style="display:flex;justify-content:center;gap:10px;padding:20px 0;border-top:1px solid var(--rule);background:#fafafa;">
-      <button class="dot active" onclick="goToSlide(0)"></button>
-      <button class="dot" onclick="goToSlide(1)"></button>
-      <button class="dot" onclick="goToSlide(2)"></button>
-      <button class="dot" onclick="goToSlide(3)"></button>
-      <button class="dot" onclick="goToSlide(4)"></button>
+    <div class="carousel-controls">
+      <button class="arrow-btn carousel-arrow-mobile" onclick="prevSlide()" aria-label="Previous flavor">&#8592;</button>
+      <div class="carousel-dots">
+        <button class="dot active" onclick="goToSlide(0)"></button>
+        <button class="dot" onclick="goToSlide(1)"></button>
+        <button class="dot" onclick="goToSlide(2)"></button>
+        <button class="dot" onclick="goToSlide(3)"></button>
+        <button class="dot" onclick="goToSlide(4)"></button>
+      </div>
+      <button class="arrow-btn carousel-arrow-mobile" onclick="nextSlide()" aria-label="Next flavor">&#8594;</button>
     </div>
   </div>
 </section>
