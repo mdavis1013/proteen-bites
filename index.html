@@ -86,7 +86,7 @@ h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(80px, 9vw, 128px); 
 @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
 .section { padding: 80px 56px; position: relative; overflow: hidden; }
-.section-header { margin-bottom: 48px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); position: relative; z-index: 2; }
+.section-header { margin-bottom: 48px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); position: relative; z-index: 2; text-align: left; }
 .section-kicker { font-family: 'Special Elite', cursive; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
 .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 5vw, 72px); line-height: 1; letter-spacing: 2px; }
 
@@ -220,6 +220,11 @@ footer { background: var(--ink); color: white; padding: 0 56px; border-top: 4px 
 
   /* ── SECTIONS ── */
   .section { padding: 56px 32px; }
+  /* The flavors-section heading lives in a plain div with hardcoded inline
+     padding (not the .section class), so it never picked up the narrower
+     padding above — it stayed at 56px while every other section's heading
+     dropped to 32px, making it look shifted right / not left-aligned. */
+  .flavors-section > div[style*="padding:80px"] { padding: 56px 32px 0 !important; }
 
   /* ── WHY GRID ── */
   .why-grid { grid-template-columns: 1fr 1fr; }
@@ -303,6 +308,7 @@ footer { background: var(--ink); color: white; padding: 0 56px; border-top: 4px 
 
   /* ── SECTIONS ── */
   .section { padding: 48px 24px; }
+  .flavors-section > div[style*="padding:80px"] { padding: 48px 24px 0 !important; }
 
   /* ── WHY GRID ── */
   .why-grid { grid-template-columns: 1fr 1fr; }
@@ -404,7 +410,7 @@ footer { background: var(--ink); color: white; padding: 0 56px; border-top: 4px 
       <li><a href="#story">Our Story</a></li>
       <li><a href="#made">How It's Made</a></li>
     </ul>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScpxp2nUd7k9nuatXKJ3CcFzuqdzUf4bNbaiydxF9g4rob2HA/viewform" target="_blank" class="nav-order" style="text-decoration:none;">Join Waitlist →</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScpxp2nUd7k9nuatXKJ3CcFzuqdzUf4bNbaiydxF9g4rob2HA/viewform" target="_blank" class="nav-order" style="text-decoration:none;">Order Now →</a>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -418,7 +424,7 @@ footer { background: var(--ink); color: white; padding: 0 56px; border-top: 4px 
   <a href="#flavors" class="mob-link">Flavors</a>
   <a href="#story" class="mob-link">Our Story</a>
   <a href="#made" class="mob-link">How It's Made</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLScpxp2nUd7k9nuatXKJ3CcFzuqdzUf4bNbaiydxF9g4rob2HA/viewform" target="_blank" class="mob-cta">Join Waitlist →</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScpxp2nUd7k9nuatXKJ3CcFzuqdzUf4bNbaiydxF9g4rob2HA/viewform" target="_blank" class="mob-cta">Order Now →</a>
 </nav>
 
 <section class="hero">
@@ -431,7 +437,7 @@ footer { background: var(--ink); color: white; padding: 0 56px; border-top: 4px 
       <span class="protein-label">Protein<br>Per Serving<br>Per Bite</span>
     </div>
     <div class="hero-btns fu d5">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScpxp2nUd7k9nuatXKJ3CcFzuqdzUf4bNbaiydxF9g4rob2HA/viewform" target="_blank" class="btn-primary">Join the Waitlist</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScpxp2nUd7k9nuatXKJ3CcFzuqdzUf4bNbaiydxF9g4rob2HA/viewform" target="_blank" class="btn-primary">Order Now</a>
       <a href="#ingredients" class="btn-ghost">See Ingredients</a>
     </div>
   </div>
@@ -782,14 +788,14 @@ footer { background: var(--ink); color: white; padding: 0 56px; border-top: 4px 
 </div>
 
 
-<!-- WAITLIST -->
+<!-- ORDER CTA -->
 <section style="background:var(--ink);padding:72px 56px;border-bottom:4px double var(--red);position:relative;overflow:hidden;text-align:center;">
   <div style="position:relative;z-index:2;">
-    <div style="font-family:'Special Elite',cursive;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:12px;">Coming Soon</div>
-    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,5vw,72px);letter-spacing:2px;color:white;margin-bottom:16px;line-height:1;">Be The First To Know</h2>
-    <p style="font-family:'Special Elite',cursive;font-size:14px;line-height:1.8;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 36px;">ProTEEN Bites is growing. Sign up to get early access, launch updates, and first dibs when we open orders to everyone.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScpxp2nUd7k9nuatXKJ3CcFzuqdzUf4bNbaiydxF9g4rob2HA/viewform" target="_blank" style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;background:var(--red);color:white;padding:16px 48px;text-decoration:none;display:inline-block;transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Join the Waitlist →</a>
-    <p style="font-family:'Special Elite',cursive;font-size:11px;color:rgba(255,255,255,0.25);margin-top:16px;letter-spacing:1px;">No spam. Just ProTEEN Bites news.</p>
+    <div style="font-family:'Special Elite',cursive;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:12px;">Made Fresh In NYC</div>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,5vw,72px);letter-spacing:2px;color:white;margin-bottom:16px;line-height:1;">Get Your Bites</h2>
+    <p style="font-family:'Special Elite',cursive;font-size:14px;line-height:1.8;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 36px;">Every batch is made fresh in small runs right here in New York City. Place your order below and we'll follow up to confirm details.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScpxp2nUd7k9nuatXKJ3CcFzuqdzUf4bNbaiydxF9g4rob2HA/viewform" target="_blank" style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;background:var(--red);color:white;padding:16px 48px;text-decoration:none;display:inline-block;transition:opacity .2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Order Now →</a>
+    <p style="font-family:'Special Elite',cursive;font-size:11px;color:rgba(255,255,255,0.25);margin-top:16px;letter-spacing:1px;">Small batches. Fresh ingredients. No spam, ever.</p>
   </div>
 </section>
 
